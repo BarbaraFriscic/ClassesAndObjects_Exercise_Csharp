@@ -6,13 +6,25 @@ using System.Threading.Tasks;
 
 namespace Predavanje_25_10_22
 {
-    internal class PorezniObveznik 
+    internal class PorezniObveznik : IComparable
     {
         
 
         public string oib;
         public int godisnjaPlaca;
         public double porez;
+
+        public int CompareTo(object obj)
+        {
+            PorezniObveznik temp = (PorezniObveznik)obj;
+            if (this.porez > temp.porez)
+                return 1;
+            else if (this.porez < temp.porez)
+                return -1;
+            else
+                return 0;
+
+        }
 
         public string Oib { 
             get { return oib; }
